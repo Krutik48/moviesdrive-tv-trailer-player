@@ -19,3 +19,7 @@ YouTube. A focused native test confirmed stable pause, resume and close with
 zero remaining iframe nodes and no late owned-frame messages over seven seconds.
 This is sample/API evidence; speaker loudness and every possible trailer are
 not independently verified. YouTube availability and embed policies can change.
+
+The player requests controls=0, disablekb=1 and fs=0 so TV app controls own
+play/pause and fullscreen navigation. YouTube can still show its branding or
+service overlays. Deprecated showinfo/modestbranding settings are not used.

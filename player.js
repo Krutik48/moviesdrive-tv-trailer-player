@@ -4,7 +4,7 @@
   if (!/^[A-Za-z0-9_-]{11}$/.test(id || "") || !/^[a-zA-Z0-9_-]{8,64}$/.test(session || "")) { return; }
   function report() { var time = 0, muted = null; try { time = player.getCurrentTime(); muted = player.isMuted(); } catch (e) {} parent.postMessage({ protocol: "mdtv-trailer-v1", session: session, phase: phase, currentTime: time, muted: muted, code: code }, "*"); }
   window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player("player", { width: "100%", height: "100%", videoId: id, playerVars: { autoplay: 1, playsinline: 1, rel: 0, origin: location.origin, widget_referrer: "https://mdtvbrowse.moviesdrivetv" }, events: {
+    player = new YT.Player("player", { width: "100%", height: "100%", videoId: id, playerVars: { autoplay: 1, playsinline: 1, rel: 0, controls: 0, disablekb: 1, fs: 0, origin: location.origin, widget_referrer: "https://mdtvbrowse.moviesdrivetv" }, events: {
       onReady: function (event) { phase = "ready"; event.target.unMute(); event.target.setVolume(100); event.target.playVideo(); report(); },
       onStateChange: function (event) { phase = event.data === 1 ? "playing" : event.data === 2 ? "paused" : event.data === 0 ? "ended" : "loading"; report(); },
       onAutoplayBlocked: function () { phase = "blocked"; report(); }, onError: function (event) { phase = "error"; code = event.data; report(); }
