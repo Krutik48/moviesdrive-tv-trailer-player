@@ -21,5 +21,8 @@ This is sample/API evidence; speaker loudness and every possible trailer are
 not independently verified. YouTube availability and embed policies can change.
 
 The player requests controls=0, disablekb=1 and fs=0 so TV app controls own
-play/pause and fullscreen navigation. YouTube can still show its branding or
-service overlays. Deprecated showinfo/modestbranding settings are not used.
+play/pause and fullscreen navigation. When YouTube serves an ad slot before or
+during a trailer, the player mutes the ad, reports phase "ad" so the parent app
+can display screenshots until the ad finishes, and restores sound when trailer
+playback starts. YouTube can still show its branding or service overlays.
+Deprecated showinfo/modestbranding settings are not used.
